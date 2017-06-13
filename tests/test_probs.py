@@ -31,6 +31,7 @@ def test_cat_is_fifty_fifty(df):
     assert result == 0.5
 
 
-def test_doc_is_good(df):
-    result = docprob('John is good', 'nice', df)
-    assert result == 0.5 * 0.5 * 1.0
+def test_compare_categories(df):
+    score_nice = docprob('John is good', 'nice', df)
+    score_not_nice = docprob('John is good', 'not_nice', df)
+    assert score_nice > score_not_nice
