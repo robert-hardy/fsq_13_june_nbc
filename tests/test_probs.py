@@ -2,6 +2,7 @@ import pytest
 
 from nbc import (
     trained_stacked,
+    docprob,
     prob
 )
 

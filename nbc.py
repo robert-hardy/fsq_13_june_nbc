@@ -46,3 +46,26 @@ def prob(f, c, trained):
     prob_f = float(prob_f_num)/prob_f_den
 
     return prob_f_given_c * prob_c / prob_f
+
+
+def prob_f_given_c(f, c, trained):
+    cat = trained['cat']
+    feature = trained['feature']
+    prob_f_given_c_num = ((cat == c) & (feature == f)).sum()
+    prob_f_given_c_den = (cat == c).sum()
+    prob_f_given_c = float(prob_f_given_c_num)/prob_f_given_c_den
+    return prob_f_given_c
+
+
+def docprob(doc, c, trained):
+    ff = doc.split()
+    p = 1.0
+    for f in ff:
+        p = p * prob_f_given_c(f, c, trained)
+
+    cat = trained['cat']
+    prob_c_num = (cat == c).sum()
+    prob_c_den = len(cat)
+    prob_c = float(prob_c_num)/prob_c_den
+
+    return p * prob_c
