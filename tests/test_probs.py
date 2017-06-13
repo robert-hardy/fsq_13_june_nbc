@@ -33,4 +33,4 @@ def test_cat_is_fifty_fifty(df):
 
 def test_doc_is_good(df):
     result = docprob('John is good', 'nice', df)
-    assert result == 1.0
+    assert result == 0.5 * 0.5 * 1.0
