@@ -13,6 +13,8 @@ def trained():
 
 
 def prob(f, c, trained):
+    if f not in trained.columns:
+        return 0.5
     cat = trained['cat']
     feature = trained[f]
 
