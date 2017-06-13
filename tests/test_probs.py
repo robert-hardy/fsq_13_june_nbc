@@ -1,14 +1,14 @@
 import pytest
 
 from nbc import (
-    trained,
+    trained_stacked,
     prob
 )
 
 
 @pytest.fixture()
 def df():
-    return trained()
+    return trained_stacked()
 
 
 def test_good_is_nice(df):
