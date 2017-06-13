@@ -12,6 +12,21 @@ def trained():
     return df
 
 
+def trained_stacked():
+    df = pd.DataFrame(
+        data = [
+            ['nice', 'John'],
+            ['nice', 'is'],
+            ['nice', 'good'],
+            ['not_nice', 'John'],
+            ['not_nice', 'is'],
+            ['not_nice', 'bad']
+        ],
+        columns = ['cat', 'feature']
+    )
+    return df
+
+
 def prob(f, c, trained):
     if f not in trained.columns:
         return 0.5
