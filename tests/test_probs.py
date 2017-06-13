@@ -28,3 +28,8 @@ def test_foo_is_fifty_fifty(df):
 def test_cat_is_fifty_fifty(df):
     result = prob('cat', 'nice', df)
     assert result == 0.5
+
+
+def test_doc_is_good(df):
+    result = docprob('John is good', 'nice', df)
+    assert result == 1.0
