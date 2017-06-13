@@ -28,10 +28,10 @@ def trained_stacked():
 
 
 def prob(f, c, trained):
-    if f not in trained.columns:
-        return 0.5
     cat = trained['cat']
     feature = trained['feature']
+    if f not in feature.values:
+        return 0.5
 
     prob_f_given_c_num = ((cat == c) & (feature == f)).sum()
     prob_f_given_c_den = (cat == c).sum()
